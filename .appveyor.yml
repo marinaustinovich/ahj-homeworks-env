@@ -18,13 +18,16 @@ build_script:
 
 test_script:
   - yarn run lint && yarn run test  # скрипт тестирования
+  
+environment:
+  access_token:
+    secure: $(GITHUB_TOKEN)
 
-deploy_script: # скрипт развёртывания
-- git config --global credential.helper store
-- git config --global user.name marinaustinovich
-- git config --global user.email marishka0509@mail.ru
-- ps: Set-Content -Path "$HOME\.git-credentials" -Value "https://$GITHUB_TOKEN:x-oauth-basic@github.com`n" -NoNewline
-
-- npx push-dir --dir=dist --branch=gh-pages --force --verbose
+on_success:
+  - git config --global credential.helper store
+  - ps: Set-Content -Path "$HOME\.git-credentials" -Value "https://$($env:access_token):x-oauth-basic@github.com`n" -NoNewline
+  - git config --global user.email marishka0509@mail.ru
+  - git config --global user.name marinaustinovich
+  - npx push-dir --dir=dist --branch=gh-pages --force --verbose
 
 
