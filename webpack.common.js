@@ -1,8 +1,7 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
-const TerserPlugin = require('terser-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
+const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
 
 module.exports = {
   target: 'web',
@@ -58,13 +57,6 @@ module.exports = {
       },
     ],
   },
-  optimization: {
-    minimize: true,
-    minimizer: [
-      new CssMinimizerPlugin(),
-      new TerserPlugin(),
-    ],
-  },
   plugins: [
     new HtmlWebPackPlugin({
       template: './src/index.html', // Данный html будет использован как шаблон
@@ -72,5 +64,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css', // Формат имени файла
     }),
+    new CleanWebpackPlugin(),
   ],
 };

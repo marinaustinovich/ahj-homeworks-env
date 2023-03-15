@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config webpack.dev.js",
+    "start": "webpack serve --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "lint": "eslint .",
     "test": "jest",
@@ -25,6 +25,7 @@
     "@babel/preset-env": "^7.20.2",
     "babel-jest": "^29.5.0",
     "babel-loader": "^9.1.2",
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.3",
     "css-minimizer-webpack-plugin": "^4.2.2",
     "eslint": "^7.32.0 || ^8.2.0",
