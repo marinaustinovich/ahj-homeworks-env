@@ -1,5 +1,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/s14o1ke1a9e1g3o7/branch/main?svg=true)](https://ci.appveyor.com/project/marinaustinovich/ahj-homeworks-env/branch/main)
 
+deployment: https://marinaustinovich.github.io/ahj-homeworks-env/
+
 ### 1. Yarn
 
 #### Легенда
